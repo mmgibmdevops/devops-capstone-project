@@ -19,10 +19,11 @@ spec:
     spec:
       containers:
       - image: us.icr.io/sn-labs-mmgorenstein/accounts:1
+      
         name: accounts
         resources: {}
 status: {}
-        env:
+env:
           - name: DATABASE_HOST
             value: postgresql
           - name: DATABASE_NAME
