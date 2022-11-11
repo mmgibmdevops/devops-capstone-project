@@ -1,4 +1,24 @@
-oc create deployment accounts \
-  --image=us.icr.io/$SN_ICR_NAMESPACE/accounts:1 \
-  --replicas=3 \
-  --dry-run=client -o yaml > deploy/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: accounts
+  name: accounts
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: accounts
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: accounts
+    spec:
+      containers:
+      - image: us.icr.io/sn-labs-mmgorenstein/accounts:1
+        name: accounts
+        resources: {}
+status: {}
